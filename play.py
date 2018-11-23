@@ -25,24 +25,3 @@ def won(tabuleiro):
 def move(tabuleiro, posicao, peca):
     if tabuleiro[posicao] == -1:
         tabuleiro[posicao] = peca
-
-'''tabuleiro = [-1,-1,-1,-1,-1,-1,-1,-1,-1]
-
-print(tabuleiro)
-
-from random import randint
-
-while won(tabuleiro) != 1:
-    posicao = randint(0, 8)
-
-    x = move(tabuleiro, posicao, 0)
-    while x != 1:
-        posicao = randint(0, 8)
-        x = move(tabuleiro, posicao, 0)
-    posicao = randint(0, 8)
-
-    x = move(tabuleiro, posicao, 1)
-    while x != 1:
-        posicao = randint(0, 8)
-        x = move(tabuleiro, posicao, 1)
-    print(tabuleiro)'''

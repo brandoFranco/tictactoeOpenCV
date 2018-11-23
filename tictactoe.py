@@ -32,7 +32,7 @@ def canto_proximo(y1,x1,y2,x2,y3,x3,y4,x4,h,w,kind):
 		return 2
 	if min(d) == d4:
 		return 3
-	
+
 
 
 def ordenar_pontos(aprox,shape):
@@ -73,7 +73,7 @@ while(cap.isOpened() and (not play.won(tabuleiro))):
 			area = cv2.contourArea(contours[i])
 			approx = cv2.approxPolyDP(contours[i],0.02*cv2.arcLength(contours[i],True),True)
 			if area > 10000 and len(approx) == 4:
-				
+
 				approx = ordenar_pontos(approx,im.shape[:2])
 				pts1 = np.float32([\
 					[approx[0][0][0],approx[0][0][1]],\
@@ -161,7 +161,7 @@ while(cap.isOpened() and (not play.won(tabuleiro))):
 							aux = randint(0, 8)
 						escolhas.append(aux)
 					print(tabuleiro)
-						
+
 
 
 				for escolha in escolhas:
@@ -201,32 +201,6 @@ while(cap.isOpened() and (not play.won(tabuleiro))):
 						cv2.circle(dst, (5 * im.shape[0] // 6, 5 * im.shape[1] // 8), 50, (0, 0, 255), 4)
 						play.move(tabuleiro, escolha, 0)
 						tabuleiro2[8] = True
-				'''cv2.rectangle(dst, (im.shape[0]//6-50, im.shape[1]//8-50), (im.shape[0]//6 +50,50+im.shape[1]//8), (255, 0, 255), 2)
-				cv2.rectangle(dst, (im.shape[0]//6-50, 3*im.shape[1]//8-50), (im.shape[0]//6+50,50+3*im.shape[1]//8), (255, 0, 255), 2)
-				cv2.rectangle(dst, (im.shape[0]//6-50, 5*im.shape[1]//8-50), (im.shape[0]//6+50,50+5*im.shape[1]//8), (255, 0, 255), 2)
-				cv2.rectangle(dst, (3*im.shape[0]//6-50, im.shape[1]//8-50), (3*im.shape[0]//6+50,50+im.shape[1]//8), (255, 0, 255), 2)
-				cv2.rectangle(dst, (3*im.shape[0]//6-50, 3*im.shape[1]//8-50), (3*im.shape[0]//6+50,50+3*im.shape[1]//8), (255, 0, 255), 2)
-				cv2.rectangle(dst, (3*im.shape[0]//6-50, 5*im.shape[1]//8-50), (3*im.shape[0]//6+50 , 50+5*im.shape[1]//8), (255, 0, 255), 2)
-				cv2.rectangle(dst, (5*im.shape[0]//6-50, im.shape[1]//8-50), (5*im.shape[0]//6+50,50+im.shape[1]//8), (255, 0, 255), 2)
-				cv2.rectangle(dst, (5*im.shape[0]//6-50, 3*im.shape[1]//8-50), (5*im.shape[0]//6+50,50+3*im.shape[1]//8), (255, 0, 255), 2)
-				cv2.rectangle(dst, (5*im.shape[0]//6-50, 5*im.shape[1]//8-50), (5*im.shape[0]//6+50,50+5*im.shape[1]//8), (255, 0, 255), 2)'''
-
-				'''cv2.circle(dst, (im.shape[0] // 6 + 10, im.shape[1] // 8 + 10), 50, (0, 0, 255), 4)
-
-				cv2.circle(dst, (im.shape[0] // 6 + 10, 3 * im.shape[1] // 8+10), 50, (0, 0, 255), 4)
-
-				cv2.circle(dst, (im.shape[0] // 6 + 10, 5 * im.shape[1] // 8+10), 50, (0, 0, 255), 4)
-				cv2.circle(dst, (3 * im.shape[0] // 6 +10, im.shape[1] // 8+10), 50, (0, 0, 255), 4)
-
-				cv2.circle(dst, (3 * im.shape[0] // 6+10, 3 * im.shape[1] // 8+10), 50, (0, 0, 255), 4)
-
-				cv2.circle(dst, (3 * im.shape[0] // 6+10, 5 * im.shape[1] // 8+10), 50, (0, 0, 255), 4)
-
-				cv2.circle(dst, (5 * im.shape[0] // 6+10, im.shape[1] // 8+10), 50, (0, 0, 255), 4)
-
-				cv2.circle(dst, (5 * im.shape[0] // 6+10, 3 * im.shape[1] // 8+10), 50, (0, 0, 255), 4)
-
-				cv2.circle(dst, (5 * im.shape[0] // 6+10, 5 * im.shape[1] // 8+10), 50, (0, 0, 255), 4)'''
 
 				cv2.imshow("output", dst)
 				print(dst.shape)
@@ -238,5 +212,5 @@ while(cap.isOpened() and (not play.won(tabuleiro))):
 	if cv2.waitKey(1) == 32:
 		break
 
-sleep(1)
+sleep(2)
 cv2.imshow('frame', im)
