@@ -1,5 +1,12 @@
+#
+# Jogo da Velha utilizando Visao Computacional e Realidade aumentada.
+# Definicao de funcoes auxiliares
+#
+
 import numpy as np
 
+
+# Funcao que verifica se e o fim do jogo.
 def won(tabuleiro):
     if (tabuleiro[0] == tabuleiro[1] == tabuleiro[2] == 0):
         return 1
@@ -42,11 +49,14 @@ def won(tabuleiro):
             return 0
 
 
+# Realiza um movimento em uma posicao livre no tabuleiro.
 def move(tabuleiro, posicao, peca):
     if tabuleiro[posicao] == -1:
         tabuleiro[posicao] = peca
 
 
+
+# funcao para localizar os cantos do tabuleiro.
 def canto(y1, x1, y2, x2, y3, x3, y4, x4, h, w, k):
     if k == "TL":
         yc, xc = 0, 0
@@ -74,6 +84,8 @@ def canto(y1, x1, y2, x2, y3, x3, y4, x4, h, w, k):
 
 
 
+# funcao utilizada para ordenar os pontos do tabuleiro.
+# Utilizada para auxiliar na transformacao de perspectiva.
 def ordena(aprox, shape):
     ord = np.copy(aprox)
     h,w = shape
